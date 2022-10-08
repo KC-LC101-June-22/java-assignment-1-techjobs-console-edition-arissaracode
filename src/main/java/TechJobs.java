@@ -64,7 +64,7 @@ public class TechJobs {
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
-                    System.out.println("In findby column loop");
+                    //System.out.println("In findby column loop");
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
             }
