@@ -73,6 +73,7 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+        System.out.println("In findbycolumnandvalue method");
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
@@ -98,8 +99,23 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+        ArrayList<HashMap<String, String>> newArray = new ArrayList<HashMap<String, String>>();
+        for(HashMap<String, String> entry : allJobs)
+        {
+            for(String key : entry.keySet())
+            {
+                String termValue = entry.get(key);
+                if(termValue.toUpperCase().contains(value.toUpperCase()))
+                {
+                    HashMap<String, String> hashmap = new HashMap<String, String>();
+                    hashmap.put(key, termValue);
+                    newArray.add(entry);
+                }
+            }
+        }
+
         // TODO - implement this method
-        return null;
+        return newArray;
     }
 
     /**

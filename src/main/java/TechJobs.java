@@ -64,6 +64,7 @@ public class TechJobs {
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
+                    System.out.println("In findby column loop");
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
             }
@@ -120,6 +121,24 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        if(someJobs.size() == 0)
+        {
+            System.out.println("No Results");
+        }
+        else
+        {
+            for(HashMap<String, String> entry : someJobs)
+            {
+                System.out.println("*****");
+                for(String key : entry.keySet())
+                {
+                    String value = entry.get(key);
+                    System.out.println(key + ":" + value);
+                }
+                System.out.println("*****");
+                System.out.println("");
+            }
+        }
+        //System.out.println("printJobs is not implemented yet");
     }
 }
